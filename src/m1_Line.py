@@ -329,7 +329,7 @@ class Line(object):
         Type hints:
           :rtype: Line
         """
-        return 
+        return
         # --------------------------------------------------------------
         # TODO: 4.
         #   a. READ the above specification, including the Example.
