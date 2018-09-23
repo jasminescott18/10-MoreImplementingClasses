@@ -366,11 +366,13 @@ class Line(object):
             print(line1 == line2)    # Should now print: True
         """
 
-        self.start = self.end
-    
+        current_start = self.start
+        current_end = self.end
+        self.start = current_end
+        self.end = current_start
 
         # --------------------------------------------------------------
-        # TODO: 5.
+        # COMPLETED: 5.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -406,6 +408,7 @@ class Line(object):
         Type hints:
           :rtype: float
         """
+
         # --------------------------------------------------------------
         # TODO: 6.
         #   a. READ the above specification, including the Example.
