@@ -365,9 +365,9 @@ class Line(object):
             line1.reverse()
             print(line1 == line2)    # Should now print: True
         """
+
         self.start = self.end
-        self.end = self.start
-        return self
+    
 
         # --------------------------------------------------------------
         # TODO: 5.
@@ -379,8 +379,6 @@ class Line(object):
         #        They include the Example in the above doc-string.
         # --------------------------------------------------------------
 
-
-        return
 
     def slope(self):
         """
