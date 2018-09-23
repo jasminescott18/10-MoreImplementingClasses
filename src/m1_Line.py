@@ -529,11 +529,14 @@ class Line(object):
 
         start_x = self.start.x + other_line.start.x
         start_y = self.start.y + other_line.start.y
-        self.start = (start_x, start_y)
+        x = start_x, start_y
         end_x = self.end.x + other_line.end.x
         end_y = self.end.y + other_line.end.y
-        self.end = (end_x, end_y)
-        return Line(self.start, self.end)
+        y = end_x, end_y
+        line_plus = x, y
+        return line_plus
+
+
 
         # --------------------------------------------------------------
         # TODO: 9.
