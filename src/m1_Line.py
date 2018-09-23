@@ -381,7 +381,6 @@ class Line(object):
         #        They include the Example in the above doc-string.
         # --------------------------------------------------------------
 
-
     def slope(self):
         """
         What comes in:
@@ -398,7 +397,6 @@ class Line(object):
 
             # Since the slope is (8 - 3) / (50 - 30) , which is 0.25:
             print(line1.slope())    # Should print [approximately]: 0.25
-
             line2 = Line(Point(10, 10), Point(10, 5))
             print(line2.slope())    # Should print:  inf
 
@@ -409,8 +407,15 @@ class Line(object):
           :rtype: float
         """
 
+        slope_x = self.end.x - self.start.x
+        slope_y = self.end.y - self.start.y
+        if slope_x == 0:
+            return math.inf
+        slope = slope_y / slope_x
+        return slope
+
         # --------------------------------------------------------------
-        # TODO: 6.
+        # COMPLETED: 6
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
