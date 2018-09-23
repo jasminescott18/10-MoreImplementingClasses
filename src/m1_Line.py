@@ -329,8 +329,9 @@ class Line(object):
         Type hints:
           :rtype: Line
         """
-        line1 = self.clone()
-        return line1
+
+        return Line(self.start, self.end)
+
         # --------------------------------------------------------------
         # COMPLETED: 4.
         #   a. READ the above specification, including the Example.
@@ -364,6 +365,10 @@ class Line(object):
             line1.reverse()
             print(line1 == line2)    # Should now print: True
         """
+        self.start = self.end
+        self.end = self.start
+        return self
+
         # --------------------------------------------------------------
         # TODO: 5.
         #   a. READ the above specification, including the Example.
@@ -373,6 +378,9 @@ class Line(object):
         #        The tests are already written (below).
         #        They include the Example in the above doc-string.
         # --------------------------------------------------------------
+
+
+        return
 
     def slope(self):
         """
