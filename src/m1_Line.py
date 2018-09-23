@@ -447,8 +447,10 @@ class Line(object):
         Type hints:
           :rtype: float
         """
+        length = math.sqrt((self.end.x - self.start.x) ** 2 + (self.end.y - self.start.y) ** 2)
+        return length
         # --------------------------------------------------------------
-        # TODO: 7.
+        # COMPLETED: 7.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
