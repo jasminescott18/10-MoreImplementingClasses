@@ -221,7 +221,7 @@ class Line(object):
         self.end = end.clone()
 
         # --------------------------------------------------------------
-        # TODO: 3.
+        # COMPLETED: 3.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -329,9 +329,10 @@ class Line(object):
         Type hints:
           :rtype: Line
         """
-        return
+        line1 = self.clone()
+        return line1
         # --------------------------------------------------------------
-        # TODO: 4.
+        # COMPLETED: 4.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
