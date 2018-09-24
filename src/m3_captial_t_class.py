@@ -161,7 +161,7 @@ class CapitalT(object):
         v_rect_corner_1 = rg.Point(self.corner_v_1_x, self.corner_v_1_y)
 
         self.corner_v_2_x = self.intersection_center.x + (letter_thickness / 2)
-        self.corner_v_2_y = self.intersection_center.y + ((letter_thickness /2) + height)
+        self.corner_v_2_y = self.intersection_center.y + ((letter_thickness / 2) + height)
         v_rect_corner_2 = rg.Point(self.corner_v_2_x, self.corner_v_2_y)
 
         self.v_rect = rg.Rectangle(v_rect_corner_1, v_rect_corner_2)
@@ -259,22 +259,12 @@ class CapitalT(object):
           :type dy: int
         """
 
-        self.corner_h_1_x = self.corner_h_1_x + dx
-        self.corner_h_1_y = self.corner_h_1_y + dy
-        h_rect_corner_1 = rg.Point(self.corner_h_1_x, self.corner_h_1_y)
-
-        self.corner_h_2_x = self.corner_h_2_x + dx
-        self.corner_h_2_y = self.corner_h_2_y + dy
-        h_rect_corner_2 = rg.Point(self.corner_h_2_x, self.corner_h_2_y)
+        h_rect_corner_1 = rg.Point(self.corner_h_1_x + dx, self.corner_h_1_y + dy)
+        h_rect_corner_2 = rg.Point(self.corner_h_2_x + dx, self.corner_h_2_y + dy)
         self.h_rect = rg.Rectangle(h_rect_corner_1, h_rect_corner_2)
 
-        self.corner_v_1_x = self.corner_v_1_x + dx
-        self.corner_v_1_y = self.corner_v_1_y + dy
-        v_rect_corner_1 = rg.Point(self.corner_v_1_x, self.corner_v_1_y)
-
-        self.corner_v_2_x = self.corner_v_2_x + dx
-        self.corner_v_2_y = self.corner_v_2_y + dy
-        v_rect_corner_2 = rg.Point(self.corner_v_2_x, self.corner_v_2_y)
+        v_rect_corner_1 = rg.Point(self.corner_v_1_x + dx, self.corner_v_1_y + dy)
+        v_rect_corner_2 = rg.Point(self.corner_v_2_x + dx, self.corner_v_2_y + dy)
 
         self.v_rect = rg.Rectangle(v_rect_corner_1, v_rect_corner_2)
 
@@ -306,8 +296,11 @@ class CapitalT(object):
         Type hints:
           :rtype: CapitalT
         """
+
+        return self.h_rect and self.v_rect
+
         # --------------------------------------------------------------
-        # TODO: 7.
+        # COMPLETED: 7.
         #   READ the above specification, including the Example.
         #   Implement and test this method by uncommenting the appropriate
         #     run_test method in main. Compare the graphics window to
