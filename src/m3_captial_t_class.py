@@ -269,7 +269,7 @@ class CapitalT(object):
         self.v_rect = rg.Rectangle(v_rect_corner_1, v_rect_corner_2)
 
         # --------------------------------------------------------------
-        # TODO: 6.
+        # COMPLETED: 6.
         #   READ the above specification, including the Example.
         #   Implement and test this method by uncommenting the appropriate
         #     run_test method in main. Compare the graphics window to
