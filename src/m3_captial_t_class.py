@@ -146,19 +146,6 @@ class CapitalT(object):
           :type letter_thickness:   int
         """
 
-        self.intersection_center = 
-
-        upper_left_corner = rg.Point(intersection_center.x + (width / 2), intersection_center.y + (letter_thickness / 2))
-        lower_right_corner = rg.Point(intersection_center.x - (width / 2), intersection_center.y + (letter_thickness /2))
-        h_rect = rg.Rectangle(upper_left_corner, lower_right_corner)
-        upper_left_corner_v = rg.Point(intersection_center.x + (letter_thickness / 2), intersection_center.y + (width / 2))
-        lower_right_corner_v = rg.Point(intersection_center.x - (width / 2), intersection_center.y + (letter_thickness / 2))
-        v_rect = rg.Rectangle(upper_left_corner_v, lower_right_corner_v)
-        h_rect.thickness = letter_thickness
-        v_rect.thickness = letter_thickness
-
-        self.attach_to()
-
         # --------------------------------------------------------------
         # TODO: 3.
         #   READ the above specification, including the Example.
