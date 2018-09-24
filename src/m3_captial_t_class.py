@@ -146,8 +146,28 @@ class CapitalT(object):
           :type letter_thickness:   int
         """
 
+        self.intersection_center = intersection_center
+        corner_h_1_x = self.intersection_center.x - (width / 2)
+        corner_h_1_y = self.intersection_center.y - (letter_thickness / 2)
+        h_rect_corner_1 = rg.Point(corner_h_1_x, corner_h_1_y)
+
+        corner_h_2_x = self.intersection_center.x + (width / 2)
+        corner_h_2_y = self.intersection_center.y + (letter_thickness / 2)
+        h_rect_corner_2 = rg.Point(corner_h_2_x, corner_h_2_y)
+        self.h_rect = rg.Rectangle(h_rect_corner_1, h_rect_corner_2)
+
+        corner_v_1_x = self.intersection_center.x - (letter_thickness / 2)
+        corner_v_1_y = self.intersection_center.y - (letter_thickness / 2)
+        v_rect_corner_1 = rg.Point(corner_v_1_x, corner_v_1_y)
+
+        corner_v_2_x = self.intersection_center.x + (letter_thickness / 2)
+        corner_v_2_y = self.intersection_center.y + ((letter_thickness /2) + height)
+        v_rect_corner_2 = rg.Point(corner_v_2_x, corner_v_2_y)
+
+        self.v_rect = rg.Rectangle(v_rect_corner_1, v_rect_corner_2)
+
         # --------------------------------------------------------------
-        # TODO: 3.
+        # COMPLETED: 3.
         #   READ the above specification, including the Example.
         #   Implement this method
         #   Note: you will need to also implement attach_to before testing
@@ -171,8 +191,11 @@ class CapitalT(object):
         Type hints:
           :type window: rg.RoseWindow
         """
+        self.v_rect.attach_to(window)
+        self.h_rect.attach_to(window)
+
         # --------------------------------------------------------------
-        # TODO: 4.
+        # COMPLETED: 4.
         #   READ the above specification, including the Example.
         #   Implement and test this method by looking at the console and
         #     the graphics window (compare it to simple_t.pdf)
