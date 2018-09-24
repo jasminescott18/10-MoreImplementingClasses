@@ -2,8 +2,8 @@
 A   CapitalT   class and methods that use the Cross class.
 
 Authors: David Mutchler, Vibha Alangar, Dave Fisher, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Jasmine Scott.
+"""  # Jasmine Scott: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -19,7 +19,7 @@ def main():
     print('Un-comment the calls in MAIN one by one')
     print(' to run the testing code as you complete the TODOs.')
 
-    # run_test_simple_t()
+    run_test_simple_t()
     # run_test_set_colors()
     # run_test_move_by()
     # run_test_clone()
@@ -145,6 +145,20 @@ class CapitalT(object):
           :type height:   int
           :type letter_thickness:   int
         """
+
+        self.intersection_center = 
+
+        upper_left_corner = rg.Point(intersection_center.x + (width / 2), intersection_center.y + (letter_thickness / 2))
+        lower_right_corner = rg.Point(intersection_center.x - (width / 2), intersection_center.y + (letter_thickness /2))
+        h_rect = rg.Rectangle(upper_left_corner, lower_right_corner)
+        upper_left_corner_v = rg.Point(intersection_center.x + (letter_thickness / 2), intersection_center.y + (width / 2))
+        lower_right_corner_v = rg.Point(intersection_center.x - (width / 2), intersection_center.y + (letter_thickness / 2))
+        v_rect = rg.Rectangle(upper_left_corner_v, lower_right_corner_v)
+        h_rect.thickness = letter_thickness
+        v_rect.thickness = letter_thickness
+
+        self.attach_to()
+
         # --------------------------------------------------------------
         # TODO: 3.
         #   READ the above specification, including the Example.
