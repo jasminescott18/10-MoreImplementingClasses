@@ -531,13 +531,12 @@ class Line(object):
           :rtype: Line:
         """
 
-        #point = (self.start.x + other_line.start.x, self.start.y + other_line.start.y)
-        #point2 = (self.end.x + other_line.end.x, self.end.y + other_line.end.y)
-        #line = (point, point2)
-        #return line
+        new_line_x = Point(self.start.x + other_line.start.x, self.start.y + other_line.start.y)
+        new_line_y = Point(self.end.x + other_line.end.x, self.end.y + other_line.end.y)
+        return Line(new_line_x, new_line_y)
 
         # --------------------------------------------------------------
-        # TODO: 9.
+        # COMPLETED: 9.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -571,10 +570,9 @@ class Line(object):
           :rtype: Line:
         """
 
-        #point = (self.start.x - other_line.start.x, self.start.y - other_line.start.y)
-        #point2 = (self.end.x - other_line.end.x, self.end.y - other_line.end.y)
-        #line = (point, point2)
-        #return line
+        new_line_x = Point(self.start.x - other_line.start.x, self.start.y - other_line.start.y)
+        new_line_y = Point(self.end.x - other_line.end.x, self.end.y - other_line.end.y)
+        return Line(new_line_x, new_line_y)
 
         # --------------------------------------------------------------
         # COMPLETED: 10.
