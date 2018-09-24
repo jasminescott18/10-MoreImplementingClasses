@@ -220,6 +220,10 @@ class Line(object):
         self.start = start.clone()
         self.end = end.clone()
         self.count = 0
+        self.start_original = self.start.clone()
+        self.end_original = self.end.clone()
+
+
 
         # --------------------------------------------------------------
         # COMPLETED: 3.
@@ -718,6 +722,9 @@ class Line(object):
             print(line1)  # Should print: Line[(-3, -4), (3, 4)]
             print(line2)  # Should print: Line[(0, 1), (10, 20)]
         """
+        self.start = self.start.clone()
+        return Line(self.start, self.end)
+
         # --------------------------------------------------------------
         # TODO: 13.
         #   a. READ the above specification, including the Example.
