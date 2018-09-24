@@ -20,9 +20,9 @@ def main():
     print(' to run the testing code as you complete the TODOs.')
 
     run_test_simple_t()
-    # run_test_set_colors()
-    # run_test_move_by()
-    # run_test_clone()
+    run_test_set_colors()
+    run_test_move_by()
+    run_test_clone()
 
 
 def run_test_simple_t():
@@ -147,22 +147,22 @@ class CapitalT(object):
         """
 
         self.intersection_center = intersection_center
-        corner_h_1_x = self.intersection_center.x - (width / 2)
-        corner_h_1_y = self.intersection_center.y - (letter_thickness / 2)
-        h_rect_corner_1 = rg.Point(corner_h_1_x, corner_h_1_y)
+        self.corner_h_1_x = self.intersection_center.x - (width / 2)
+        self.corner_h_1_y = self.intersection_center.y - (letter_thickness / 2)
+        h_rect_corner_1 = rg.Point(self.corner_h_1_x, self.corner_h_1_y)
 
-        corner_h_2_x = self.intersection_center.x + (width / 2)
-        corner_h_2_y = self.intersection_center.y + (letter_thickness / 2)
-        h_rect_corner_2 = rg.Point(corner_h_2_x, corner_h_2_y)
+        self.corner_h_2_x = self.intersection_center.x + (width / 2)
+        self.corner_h_2_y = self.intersection_center.y + (letter_thickness / 2)
+        h_rect_corner_2 = rg.Point(self.corner_h_2_x, self.corner_h_2_y)
         self.h_rect = rg.Rectangle(h_rect_corner_1, h_rect_corner_2)
 
-        corner_v_1_x = self.intersection_center.x - (letter_thickness / 2)
-        corner_v_1_y = self.intersection_center.y - (letter_thickness / 2)
-        v_rect_corner_1 = rg.Point(corner_v_1_x, corner_v_1_y)
+        self.corner_v_1_x = self.intersection_center.x - (letter_thickness / 2)
+        self.corner_v_1_y = self.intersection_center.y - (letter_thickness / 2)
+        v_rect_corner_1 = rg.Point(self.corner_v_1_x, self.corner_v_1_y)
 
-        corner_v_2_x = self.intersection_center.x + (letter_thickness / 2)
-        corner_v_2_y = self.intersection_center.y + ((letter_thickness /2) + height)
-        v_rect_corner_2 = rg.Point(corner_v_2_x, corner_v_2_y)
+        self.corner_v_2_x = self.intersection_center.x + (letter_thickness / 2)
+        self.corner_v_2_y = self.intersection_center.y + ((letter_thickness /2) + height)
+        v_rect_corner_2 = rg.Point(self.corner_v_2_x, self.corner_v_2_y)
 
         self.v_rect = rg.Rectangle(v_rect_corner_1, v_rect_corner_2)
 
@@ -221,8 +221,15 @@ class CapitalT(object):
           :type fill_color: str
           :type outline_color: str
         """
+
+        self.h_rect.fill_color = fill_color
+        self.v_rect.fill_color = fill_color
+
+        self.h_rect.outline_color = outline_color
+        self.v_rect.outline_color = outline_color
+
         # --------------------------------------------------------------
-        # TODO: 5.
+        # COMPLETED: 5.
         #   READ the above specification, including the Example.
         #   Implement and test this method by uncommenting the appropriate
         #     run_test method in main. Compare the graphics window to
@@ -251,6 +258,26 @@ class CapitalT(object):
           :type dx: int
           :type dy: int
         """
+
+        self.corner_h_1_x = self.corner_h_1_x + dx
+        self.corner_h_1_y = self.corner_h_1_y + dy
+        h_rect_corner_1 = rg.Point(self.corner_h_1_x, self.corner_h_1_y)
+
+        self.corner_h_2_x = self.corner_h_2_x + dx
+        self.corner_h_2_y = self.corner_h_2_y + dy
+        h_rect_corner_2 = rg.Point(self.corner_h_2_x, self.corner_h_2_y)
+        self.h_rect = rg.Rectangle(h_rect_corner_1, h_rect_corner_2)
+
+        self.corner_v_1_x = self.corner_v_1_x + dx
+        self.corner_v_1_y = self.corner_v_1_y + dy
+        v_rect_corner_1 = rg.Point(self.corner_v_1_x, self.corner_v_1_y)
+
+        self.corner_v_2_x = self.corner_v_2_x + dx
+        self.corner_v_2_y = self.corner_v_2_y + dy
+        v_rect_corner_2 = rg.Point(self.corner_v_2_x, self.corner_v_2_y)
+
+        self.v_rect = rg.Rectangle(v_rect_corner_1, v_rect_corner_2)
+
         # --------------------------------------------------------------
         # TODO: 6.
         #   READ the above specification, including the Example.
