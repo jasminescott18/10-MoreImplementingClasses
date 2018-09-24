@@ -527,16 +527,10 @@ class Line(object):
           :rtype: Line:
         """
 
-        start_x = self.start.x + other_line.start.x
-        start_y = self.start.y + other_line.start.y
-        x = start_x, start_y
-        end_x = self.end.x + other_line.end.x
-        end_y = self.end.y + other_line.end.y
-        y = end_x, end_y
-        line_plus = x, y
-        return line_plus
-
-
+        #point = (self.start.x + other_line.start.x, self.start.y + other_line.start.y)
+        #point2 = (self.end.x + other_line.end.x, self.end.y + other_line.end.y)
+        #line = (point, point2)
+        #return line
 
         # --------------------------------------------------------------
         # TODO: 9.
@@ -572,17 +566,13 @@ class Line(object):
           :type  other_line: Line
           :rtype: Line:
         """
-        start_x = self.start.x - other_line.start.x
-        start_y = self.start.y - other_line.start.y
-        start = (start_x, start_y)
-        end_x = self.end.x - other_line.end.x
-        end_y = self.end.y - other_line.end.y
-        end = (end_x, end_y)
-        self = (start, end)
-        return self
+        #point = (self.start.x - other_line.start.x, self.start.y - other_line.start.y)
+        #point2 = (self.end.x - other_line.end.x, self.end.y - other_line.end.y)
+        #line = (point, point2)
+        #return line
 
         # --------------------------------------------------------------
-        # TODO: 10.
+        # COMPLETED: 10.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -611,7 +601,8 @@ class Line(object):
 
         x = (self.start.x + self.end.x) / 2
         y = (self.start.y + self.end.y) / 2
-        return Line(x, y)
+        line = Point(x, y)
+        return line
         # --------------------------------------------------------------
         # COMPLETED: 11.
         #   a. READ the above specification, including the Example.
@@ -648,8 +639,16 @@ class Line(object):
           :type  line2: Line
           :rtype: bool
         """
-        line2_slope = (line2.end.y - line2.start.y) / (line2.end.x - line2.start.x)
-        self_slope = (self.end.y - self.start.y) / (self.end.x - self.start.x)
+        line_y = (line2.end.y - line2.start.y)
+        line_x = (line2.end.x - line2.start.x)
+        self_slope_x = (self.end.x - self.start.x)
+        self_slope_y = (self.end.y - self.start.y)
+        if line_x == 0:
+            line_x = math.inf
+        if self_slope_x == 0:
+            self_slope_x = math.inf
+        line2_slope = line_y / line_x
+        self_slope = self_slope_y / self_slope_x
         if line2_slope == self_slope:
             return True
         else:
