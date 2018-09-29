@@ -146,6 +146,11 @@ class CapitalT(object):
           :type letter_thickness:   int
         """
 
+        self.intersection_center = intersection_center.clone()
+        self.width = width
+        self.height = height
+        self.letter_thickness = letter_thickness
+
         self.intersection_center = intersection_center
         self.corner_h_1_x = self.intersection_center.x - (width / 2)
         self.corner_h_1_y = self.intersection_center.y - (letter_thickness / 2)
@@ -163,8 +168,9 @@ class CapitalT(object):
         self.corner_v_2_x = self.intersection_center.x + (letter_thickness / 2)
         self.corner_v_2_y = self.intersection_center.y + ((letter_thickness / 2) + height)
         v_rect_corner_2 = rg.Point(self.corner_v_2_x, self.corner_v_2_y)
-
         self.v_rect = rg.Rectangle(v_rect_corner_1, v_rect_corner_2)
+
+        self.intersection_center_original = self.intersection_center.clone()
 
         # --------------------------------------------------------------
         # COMPLETED: 3.
@@ -228,6 +234,12 @@ class CapitalT(object):
         self.h_rect.outline_color = outline_color
         self.v_rect.outline_color = outline_color
 
+        #self.h_rect.fill_color = fill_color.clone()
+        #self.h_rect.outline_color = outline_color.clone()
+        #self.v_rect.fill_color = fill_color.clone()
+        #self.v_rect.outline_color = outline_color.clone()
+
+        #self.h_rect.outline_color_original = self.h_rect
         # --------------------------------------------------------------
         # COMPLETED: 5.
         #   READ the above specification, including the Example.
@@ -259,14 +271,14 @@ class CapitalT(object):
           :type dy: int
         """
 
-        h_rect_corner_1 = rg.Point(self.corner_h_1_x + dx, self.corner_h_1_y + dy)
-        h_rect_corner_2 = rg.Point(self.corner_h_2_x + dx, self.corner_h_2_y + dy)
-        self.h_rect = rg.Rectangle(h_rect_corner_1, h_rect_corner_2)
-
-        v_rect_corner_1 = rg.Point(self.corner_v_1_x + dx, self.corner_v_1_y + dy)
-        v_rect_corner_2 = rg.Point(self.corner_v_2_x + dx, self.corner_v_2_y + dy)
-
-        self.v_rect = rg.Rectangle(v_rect_corner_1, v_rect_corner_2)
+        self.h_rect.corner_1.x = self.h_rect.corner_1.x + dx
+        self.h_rect.corner_1.y = self.h_rect.corner_1.y + dy
+        self.h_rect.corner_2.x = self.h_rect.corner_2.x + dx
+        self.h_rect.corner_2.y = self.h_rect.corner_2.y + dy
+        self.v_rect.corner_1.x = self.v_rect.corner_1.x + dx
+        self.v_rect.corner_1.y = self.v_rect.corner_1.y + dy
+        self.v_rect.corner_2.x = self.v_rect.corner_2.x + dx
+        self.v_rect.corner_2.y = self.v_rect.corner_2.y + dy
 
         # --------------------------------------------------------------
         # COMPLETED: 6.
@@ -297,7 +309,9 @@ class CapitalT(object):
           :rtype: CapitalT
         """
 
-        return self.h_rect and self.v_rect
+        self.intersection_center_original = self.intersection_center
+
+        return CapitalT(self.intersection_center, self.width, self.height, self.letter_thickness)
 
         # --------------------------------------------------------------
         # COMPLETED: 7.
