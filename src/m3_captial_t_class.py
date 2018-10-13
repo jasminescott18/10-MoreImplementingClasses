@@ -171,7 +171,6 @@ class CapitalT(object):
         self.v_rect = rg.Rectangle(v_rect_corner_1, v_rect_corner_2)
 
         self.intersection_center_original = self.intersection_center.clone()
-        self.in
 
         # --------------------------------------------------------------
         # COMPLETED: 3.
